@@ -1,0 +1,200 @@
+
+/*se declara box sizing universan hereditario, esto hace que ningun elemento sobrepase las limitaciones
+de tamaño de su contenedor padre*/
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+/*se quita el margen que tiene el navegador por defecto*/
+body {
+  margin: 0;
+}
+
+/* Responsive Images (boiler plate de css para diseños responsivos sera comentado en este archivo
+
+embed,
+iframe,
+img,
+object,
+video {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {
+  margin: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+}
+*/
+/* Removes all decimals and discs from lists
+ol,
+ul {
+  list-style: none;
+}
+*/
+
+/*
+ * Completely resets form items
+ * ----------------------------
+ * Super hard reset that removes all borders
+ * and radiuses of all form items (including
+ * checkboxes and radios)
+ */
+
+input,
+textarea,
+button {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  outline: none;
+  appearance: none;
+  text-align: left;
+}
+
+input:hover,
+input:active,
+input:focus,
+textarea:hover,
+textarea:active,
+textarea:focus,
+button:hover,
+button:active,
+button:focus {
+  outline: none;
+}
+
+:root {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+html {
+  font-size: 175%;
+  font-weight: 300;
+  line-height: 1.3;
+}
+/* se alinea al medio del contenedor principal todo sus contenidos y se declara que tendra una altura de
+100vh (que se traduce en el 100% del tamaño de la pantalla que visualiza la pagina), tambien se define un
+fondo de pantalla a un gradient */
+body {
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(236deg, #74ebd5, #acb6e5);
+  justify-content: center;
+  height: 100vh;
+
+}
+    /* el contenedor tendra un tamaño maximo de 20em/320px, alcanzado ese tamaño el contenedor
+    no se expandira mas */
+.container {
+  max-width: 20em;
+}
+
+/*.container > p {
+    text-align: center;
+  }*/
+/* se estiliza el contendor de la calculadora, se redondean los bordes, se le aplica una sombra, tambien
+se declara que sus margenes en el eje x se les de un valor apropiado (que siempre ente en el centro de la pagina)
+tambien se declara el ancho maximo que puede alcanzar el contenedor (3 cuartos de su contenedor padre) y que
+el contenido que exceda la altura del contenedor sea escondido */
+.calculator {
+  border-radius: 12px;
+  box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  max-width: 15em;
+  overflow: hidden;
+}
+
+/* se estiliza el contenedor que mostrara los numeros del calculador tambien se le otorga un padding
+que aleja su contenido de los bordes del contenedor, tambien se declara que su valor se encuentra a la
+derecha del contendor, un color (de fondo y de fuente) y un tamaño de fuente que sobresalga de los demas */
+.calculator__display {
+  background-color: #222222;
+  color: #fff;
+  font-size: 1.714285714em;
+  padding: 0.5em 0.75em;
+  text-align: right;
+}
+/* se declara el metodo de alianeamiento como grid donde habra 4 columnas y cada una ocupara la misma cantidad
+de espacio disponiblen una separacion de entre cada elemento de 1px y un color de fondo */
+.calculator__keys {
+  background-color: #999;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(4, 1fr);
+}
+/* todos los elementos pertenecientes a este contenedor seran otrogados las siguiente propiedades,
+un color de fondo, un padding y la propiedad de posicionamiento relativa, tambien se centraran los textos
+de estas */
+.calculator__keys > * {
+  background-color: #fff;
+  padding: 0.5em 1.25em;
+  position: relative;
+  text-align: center;
+}
+/* aqui se le declara a el pequeño sombreo que tendran las teclas al ser precionadas */
+.calculator__keys > *:active::before,
+.calculator__keys > .is-depressed::before {
+  background-color: rgba(0, 0, 0, 0.2);
+  bottom: 0;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5) inset;
+  content: "";
+  left: 0;
+  opacity: 0.3;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+/* se hace a los botones de las operaciones un poco mas oscuros */
+.key--operator {
+  background-color: #eee;
+}
+/* se hace al operador = un color con un gradient y que ocupara mayor espacio que las demas 
+empezando desde la 2 fila de la columna asignada, la columna que 
+ocupara (#4) y la cantidad que ocupara (span4) */
+.key--equal {
+  background-image: linear-gradient(to bottom, #fe886a, #ff7033);
+  grid-column: 4;
+  grid-row: 2 / span 4;
+}
